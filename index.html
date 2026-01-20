@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Senior 2026 – Abdo Mohamed</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    direction:rtl;
+    padding:20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    color:#333;
+}
+
+.icon{
+    margin-left:6px;
+}
+
+.college{
+    text-align:center;
+    font-size:15px;
+    color:#666;
+    margin-top:6px;
+    margin-bottom:35px;
+}
+
+.timeline{
+    position:relative;
+    max-width:750px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:4px;
+    background:#ccc;
+    top:0;
+    bottom:0;
+    right:18px;
+}
+
+.item{
+    position:relative;
+    background:#fff;
+    padding:15px 20px;
+    margin:30px 0;
+    border-radius:8px;
+    box-shadow:0 0 5px rgba(0,0,0,.1);
+    margin-right:60px;
+    opacity:0;
+    transform:translateY(30px);
+    transition:.6s ease, background 0.3s, color 0.3s;
+}
+
+.item.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.item.done{
+    background:#e8f5e9;
+}
+
+.item::before{
+    content:'';
+    position:absolute;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ccc;
+    right:-38px;
+    top:30px;
+    transition:.3s;
+}
+
+.item.done::before{
+    background:#4caf50;
+}
+
+.year{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.age{
+    font-size:14px;
+    color:#555;
+    margin-top:5px;
+}
+
+.check{
+    position:absolute;
+    left:15px;
+    top:25px;
+}
+
+/* الصور */
+.photo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-top:12px;
+    border:3px solid #ddd;
+}
+
+.photo.senior{
+    width:120px;
+    height:120px;
+    border:4px solid #4caf50;
+    box-shadow:0 6px 15px rgba(0,0,0,.25);
+}
+
+.caption{
+    margin-top:8px;
+    font-weight:bold;
+    color:#2e7d32;
+}
+
+/* موبايل */
+@media(max-width:600px){
+    .item{
+        margin-right:40px;
+        padding:14px;
+    }
+}
+
+/* Dark Mode */
+body.dark {
+    background:#121212;
+    color:#eee;
+}
+
+body.dark .item {
+    background:#1e1e1e;
+    box-shadow:0 0 5px rgba(255,255,255,0.1);
+}
+
+body.dark .item.done {
+    background:#2e7d32;
+}
+
+body.dark .year,
+body.dark .age,
+body.dark .subtitle,
+body.dark .college,
+body.dark .caption {
+    color:#eee;
+}
+
+body.dark .timeline::after{
+    background:#555;
+}
+
+body.dark .photo{
+    border:3px solid #555;
+}
+
+body.dark .photo.senior{
+    border:4px solid #4caf50;
+    box-shadow:0 6px 15px rgba(0,0,0,.5);
+}
+
+/* زر الوضع الداكن العائم */
+#darkModeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #4caf50;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+#darkModeToggle:hover {
+    background: #388e3c;
+}
+
+body.dark #darkModeToggle {
+    background: #bbb;
+    color: #121212;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Senior 2026</h1>
+<div class="subtitle">
+    <span class="icon">🎓</span> Abdo Mohamed
+</div>
+<div class="college">جامعة برج العرب التكنولوجية</div>
+
+<!-- زر الوضع الداكن العائم -->
+<button id="darkModeToggle" title="تبديل الوضع الداكن">🌙</button>
+
+<div class="timeline">
+
+<div class="item" data-year="2007">
+    <div class="year">2007 – KG1</div>
+    <div class="age"></div>
+    <img src="WhatsApp Image 2026-01-20 at 3.41.26 PM.jpeg" class="photo" alt="Childhood">
+    <input class="check" type="checkbox">
+</div>
+
+<div class="item" data-year="2008"><div class="year">2008 – KG2</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2009"><div class="year">2009 – أولى ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2010"><div class="year">2010 – تانية ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2011"><div class="year">2011 – تالتة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2012"><div class="year">2012 – رابعة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2013"><div class="year">2013 – خامسة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2014"><div class="year">2014 – سادسة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2015"><div class="year">2015 – أولى إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2016"><div class="year">2016 – تانية إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2017"><div class="year">2017 – تالتة إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2018"><div class="year">2018 – أولى ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2019"><div class="year">2019 – تانية ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2020"><div class="year">2020 – تالتة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2021"><div class="year">2021 – رابعة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2022"><div class="year">2022 – خامسة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2023"><div class="year">2023 – أولى جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2024"><div class="year">2024 – تانية جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
+<div class="item" data-year="2025"><div class="year">2025 – تالتة جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
+
+<div class="item" data-year="2026">
+    <div class="year">2026 – رابعة جامعة 🎓</div>
+    <div class="age"></div>
+    <img src="WhatsApp Image 2026-01-20 at 3.47.21 PM.jpeg" class="photo senior" alt="Senior">
+    <div class="caption">Proud Senior 2026</div>
+    <input class="check" type="checkbox">
+</div>
+
+</div>
+
+<script>
+const birthYear = 2002;
+const items = document.querySelectorAll('.item');
+
+/* العمر + LocalStorage */
+items.forEach((item, index)=>{
+    const year = item.dataset.year;
+    item.querySelector('.age').innerText =
+        `العمر: ${year - birthYear} سنة`;
+
+    const checkbox = item.querySelector('.check');
+    const saved = localStorage.getItem('item'+index);
+
+    if(saved === 'true'){
+        checkbox.checked = true;
+        item.classList.add('done');
+    }
+
+    checkbox.addEventListener('change', ()=>{
+        item.classList.toggle('done', checkbox.checked);
+        localStorage.setItem('item'+index, checkbox.checked);
+    });
+});
+
+/* Scroll Animation */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{ threshold:0.2 });
+
+items.forEach(item=> observer.observe(item));
+
+/* Dark Mode */
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+// تحميل الوضع المحفوظ مسبقاً
+if(localStorage.getItem('darkMode') === 'true'){
+    document.body.classList.add('dark');
+}
+
+// تبديل الوضع عند الضغط على الزر
+darkModeToggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+});
+</script>
+
+</body>
+</html>
+              
