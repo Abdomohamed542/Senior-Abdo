@@ -2,306 +2,527 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Senior 2026 – Abdo Mohamed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  SMG TURO FAN  </title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f8;
-    direction:rtl;
-    padding:20px;
-    transition: background 0.3s, color 0.3s;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #898a8b;
+    direction: rtl;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:5px;
+header {
+    background: #792428;
+    color: rgb(247, 246, 246);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 
-.subtitle{
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-    color:#333;
+/* سلايدر */
+.slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-.icon{
-    margin-left:6px;
+.slides {
+    display: flex;
+    width: 100%;
 }
 
-.college{
-    text-align:center;
-    font-size:15px;
-    color:#666;
-    margin-top:6px;
-    margin-bottom:35px;
+.slide {
+    width: 100%;
+    flex-shrink: 0;
 }
 
-.timeline{
-    position:relative;
-    max-width:750px;
-    margin:auto;
+.slide img {
+    width: 100%;
+    display: block;
 }
 
-.timeline::after{
-    content:'';
-    position:absolute;
-    width:4px;
-    background:#ccc;
-    top:0;
-    bottom:0;
-    right:18px;
+/* جريد المنتجات */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
-.item{
-    position:relative;
-    background:#fff;
-    padding:15px 20px;
-    margin:30px 0;
-    border-radius:8px;
-    box-shadow:0 0 5px rgba(0,0,0,.1);
-    margin-right:60px;
-    opacity:0;
-    transform:translateY(30px);
-    transition:.6s ease, background 0.3s, color 0.3s;
+/* الكارت */
+.card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.item.show{
-    opacity:1;
-    transform:translateY(0);
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.item.done{
-    background:#e8f5e9;
+.card img,
+.card video {
+    width: 100%;
+    display: block;
 }
 
-.item::before{
-    content:'';
-    position:absolute;
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    background:#ccc;
-    right:-38px;
-    top:30px;
-    transition:.3s;
+/* الاستيكر الأحمر */
+.badge {
+    position: absolute;
+    top: 15px;
+    right: -45px;
+    background: red;
+    color: white;
+    padding: 8px 60px;
+    font-weight: bold;
+    transform: rotate(45deg);
+    font-size: 0.9rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-.item.done::before{
-    background:#4caf50;
+/* التفاصيل */
+.details {
+    padding: 1rem;
+    text-align: right;
 }
 
-.year{
-    font-weight:bold;
-    font-size:16px;
+.details h3 {
+    margin: 0 0 0.5rem;
+    color: #792428;
 }
 
-.age{
-    font-size:14px;
-    color:#555;
-    margin-top:5px;
+.details p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: #555;
 }
 
-.check{
-    position:absolute;
-    left:15px;
-    top:25px;
+/* السعر */
+.price-box {
+    margin-top: 10px;
 }
 
-/* الصور */
-.photo{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    object-fit:cover;
-    margin-top:12px;
-    border:3px solid #ddd;
+.new-price {
+    display: inline-block;
+    background: #792428;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-.photo.senior{
-    width:120px;
-    height:120px;
-    border:4px solid #4caf50;
-    box-shadow:0 6px 15px rgba(0,0,0,.25);
+/* زرار واتساب */
+.btn-book {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+    background-color: #792428;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.caption{
-    margin-top:8px;
-    font-weight:bold;
-    color:#2e7d32;
+.btn-book:hover {
+    background-color: #792428;
 }
 
-/* موبايل */
-@media(max-width:600px){
-    .item{
-        margin-right:40px;
-        padding:14px;
+.btn-facebook {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto;
+    background-color: #792428;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-facebook:hover {
+    background-color: #792428;
+}
+@media (max-width: 600px) {
+    header {
+        font-size: 1.2rem;
     }
-}
-
-/* Dark Mode */
-body.dark {
-    background:#121212;
-    color:#eee;
-}
-
-body.dark .item {
-    background:#1e1e1e;
-    box-shadow:0 0 5px rgba(255,255,255,0.1);
-}
-
-body.dark .item.done {
-    background:#2e7d32;
-}
-
-body.dark .year,
-body.dark .age,
-body.dark .subtitle,
-body.dark .college,
-body.dark .caption {
-    color:#eee;
-}
-
-body.dark .timeline::after{
-    background:#555;
-}
-
-body.dark .photo{
-    border:3px solid #555;
-}
-
-body.dark .photo.senior{
-    border:4px solid #4caf50;
-    box-shadow:0 6px 15px rgba(0,0,0,.5);
-}
-
-/* زر الوضع الداكن العائم */
-#darkModeToggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 14px;
-    font-size: 18px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    background: #4caf50;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    z-index: 1000;
-}
-
-#darkModeToggle:hover {
-    background: #388e3c;
-}
-
-body.dark #darkModeToggle {
-    background: #bbb;
-    color: #121212;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Senior 2026</h1>
-<div class="subtitle">
-    <span class="icon">🎓</span> Abdo Mohamed
-</div>
-<div class="college">جامعة برج العرب التكنولوجية</div>
+<header>SMG TURO FAN</header>
 
-<!-- زر الوضع الداكن العائم -->
-<button id="darkModeToggle" title="تبديل الوضع الداكن">🌙</button>
+<!-- سلايدر -->
+<section class="slider">
+    <div class="slides">
+        <div class="slide">
+            <img src="smg1.jpeg" alt="عرض">
+            <p></p>
+        </div>
+    </div>
+</section>
 
-<div class="timeline">
+<video width="100%" controls autoplay muted >
+  <source src="SMG3.mp4" type="video/mp4">
+</video> 
+<!-- المنتجات -->
+<section class="grid">
 
-<div class="item" data-year="2007">
-    <div class="year">2007 – KG1</div>
-    <div class="age"></div>
-    <img src="WhatsApp Image 2026-01-20 at 3.41.26 PM.jpeg" class="photo" alt="Childhood">
-    <input class="check" type="checkbox">
-</div>
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg3.jpeg" alt="بلاور معدن  ماركة vents 
+ ">
+        <div class="details">
+            <h3>بلاور معدن  ماركة vents 
+</h3>
+            <p>ضمان 5 سنوات صناعه اوكراني </p>
+<p>قوة سحب 4 بوصه 250م٣/س سعر 5900 ج</p>
 
-<div class="item" data-year="2008"><div class="year">2008 – KG2</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2009"><div class="year">2009 – أولى ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2010"><div class="year">2010 – تانية ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2011"><div class="year">2011 – تالتة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2012"><div class="year">2012 – رابعة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2013"><div class="year">2013 – خامسة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2014"><div class="year">2014 – سادسة ابتدائي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2015"><div class="year">2015 – أولى إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2016"><div class="year">2016 – تانية إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2017"><div class="year">2017 – تالتة إعدادي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2018"><div class="year">2018 – أولى ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2019"><div class="year">2019 – تانية ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2020"><div class="year">2020 – تالتة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2021"><div class="year">2021 – رابعة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2022"><div class="year">2022 – خامسة ثانوي</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2023"><div class="year">2023 – أولى جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2024"><div class="year">2024 – تانية جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
-<div class="item" data-year="2025"><div class="year">2025 – تالتة جامعة</div><div class="age"></div><input class="check" type="checkbox"></div>
+<p>قوه سحب 5 بوصه 340م٣/س سعر 6150ج </p>
 
-<div class="item" data-year="2026">
-    <div class="year">2026 – رابعة جامعة 🎓</div>
-    <div class="age"></div>
-    <img src="WhatsApp Image 2026-01-20 at 3.47.21 PM.jpeg" class="photo senior" alt="Senior">
-    <div class="caption">Proud Senior 2026</div>
-    <input class="check" type="checkbox">
-</div>
+<p>قوه سحب 6 بوصه 455م٣/س سعر 6350ج</p>
 
-</div>
+<p>قوه سحب 8 بوصه 1000م٣/س سعر 7350 ج</p>
 
-<script>
-const birthYear = 2002;
-const items = document.querySelectorAll('.item');
+<p>قوه سحب 10بوصه 1040م٣/س سعر 7850ج</p>
 
-/* العمر + LocalStorage */
-items.forEach((item, index)=>{
-    const year = item.dataset.year;
-    item.querySelector('.age').innerText =
-        `العمر: ${year - birthYear} سنة`;
+<p>قوه سحب 12 بوصه 1540م٣/س سعر 8900 ج</p>
+            </p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 5900  </span>
+            </div>
+        </div>
+    </div>
 
-    const checkbox = item.querySelector('.check');
-    const saved = localStorage.getItem('item'+index);
+    <!-- منتج 1 -->
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg4.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور معدن ماركة Bvn </h3>
+            <p>ضمان سنتين صناعة تركي </p>
+            <p>قوه سحب 4 بوصه 240م٣/س سعر 2950 ج</p>
+            <p>قوه سحب 5 بوصه 315م٣/س سعر 3150ج </p>
+            <p>قوه سحب 6 بوصه 430م٣/س سعر 3300ج</p>
+            <p>قوه سحب 8 بوصه 870م٣/س سعر 4200ج</p>
+            <p>قوه سحب 10بوصه 1150م٣/س سعر 4600ج</p>
+            <p>قوه سحب 12 بوصه 1750م٣/س سعر 5800ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 2950  </span>
+            </div>
+        </div>
+    </div>
 
-    if(saved === 'true'){
-        checkbox.checked = true;
-        item.classList.add('done');
-    }
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg5.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور معدن ماركة activent  </h3>
+            <p>ضمان 3 سنوات صناعة تركي </p>
+            <p>قوه سحب 4 بوصه 240م٣/س سعر 2800 ج</p>
+            <p>قوه سحب 5 بوصه 315م٣/س سعر 2950ج </p>
+            <p>قوه سحب 6 بوصه 430م٣/س سعر 3000ج</p>
+            <p>قوه سحب 8 بوصه 870م٣/س سعر 3900 ج</p>
+            <p>قوه سحب 10بوصه 1150م٣/س سعر 4500ج</p>
+            <p>قوه سحب 12 بوصه 1750م٣/س سعر 5200ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 2800  </span>
+            </div>
+        </div>
+    </div>
 
-    checkbox.addEventListener('change', ()=>{
-        item.classList.toggle('done', checkbox.checked);
-        localStorage.setItem('item'+index, checkbox.checked);
-    });
-});
 
-/* Scroll Animation */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-},{ threshold:0.2 });
+      <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg6.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور بلاستيك ماركة vents  </h3>
+            <p>موديل TT Pro</p>
+            <p>ضمان 5 سنوات صناعه اوكراني </p>
+            <p>قوه سحب 8 بوصه 1000م٣/س سعر 8750 ج</p>
+            <p>قوه سحب 10بوصه 1040م٣/س سعر10150 ج</p>
+            <p>قوه سحب 12 بوصه 1540م٣/س سعر 14650 ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 8750 </span>
+            </div>
+        </div>
+    </div>
 
-items.forEach(item=> observer.observe(item));
+<div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg7.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور بلاستيك  ماركة vents    </h3>
+            <p>موديل TT </p>
+            <p>ضمان 5 سنوات صناعه اوكراني </p>
+            <p>قوه سحب 4 بوصه 250م٣/س سعر 4050ج</p>
+            <p>قوه سحب 5 بوصه 340م٣/س سعر 4200ج </p>
+            <p>قوه سحب 6 بوصه 455م٣/س سعر 6350ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 4050 </span>
+            </div>
+        </div>
+    </div>
 
-/* Dark Mode */
-const darkModeToggle = document.getElementById('darkModeToggle');
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg8.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور بلاستيك ماركة Bvn  </h3>
+            <p>ضمان سنتين صناعة تركي  </p>
+            <p>قوه سحب 4 بوصه 177م٣/س سعر 2600ج</p>
+            <p>قوه سحب 5 بوصه 240م٣/س سعر 2850ج </p>
+            <p>قوه سحب 6 بوصه 530م٣/س سعر 4850ج</p>
+            <p>قوه سحب 8 بوصه 840م٣/س سعر 5750ج</p>
+            <p>قوه سحب 10بوصه 1100م٣/س سعر 11750ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 2600 </span>
+            </div>
+        </div>
+    </div>
 
-// تحميل الوضع المحفوظ مسبقاً
-if(localStorage.getItem('darkMode') === 'true'){
-    document.body.classList.add('dark');
-}
 
-// تبديل الوضع عند الضغط على الزر
-darkModeToggle.addEventListener('click', ()=>{
-    document.body.classList.toggle('dark');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark'));
-});
-</script>
+        <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg18.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>بلاور بلاستيك ماركة Walsan </h3>
+            <p>ضمان سنتين صناعة تركي </p>
+            <p>قوه سحب 4 بوصه 300م٣/س سعر 2500ج</p>
+            <p>قوه سحب 5 بوصه 420م٣/س سعر 2650ج </p>
+            <p>قوه سحب 6 بوصه 600م٣/س سعر 2850ج</p>
+            <p>قوه سحب 8 بوصه 840م٣/س سعر 3700ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 2500 </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg9.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>شفاط فالكو  مسمط  </h3>
+            <p>متاح منه الوان ابيض واسود</p>
+            <p>صناعه مصري ضمان 10 سنوات</p>
+            <p>قوه سحب 4 بوصه 120م٣/س سعر 1050 ج</p>
+            <p>قوه سحب 5 بوصه 180م٣/س سعر 1250ج</p>
+            <p>قوه سحب 6 بوصه 300م٣/س سعر 1350ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 1050 </span>
+            </div>
+        </div>
+    </div>
+
+
+       <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg10.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>شفاط فالكو شبكة </h3>
+            <p>صناعه مصري ضمان 10 سنوات</p>
+            <p>قوه سحب 4 بوصه 120م٣/س سعر 950ج</p>
+            <p>قوه سحب 5 بوصه 180م٣/س سعر 1075ج</p>
+            <p>قوه سحب 6 بوصه 300م٣/س سعر 1200ج</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 950 </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg11.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>شفاط Bvn </h3>
+            <p>صناعه تركي  ضمان سنتين </p>
+            <p>قوه سحب 4 بوصه 120م٣/س سعر 1300 ج</p>
+            <p>قوه سحب 5 بوصه 180م٣/س سعر 1400ج</p>
+            <p>قوه سحب 6 بوصه 300م٣/س سعر 1600ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 1300 </span>
+            </div>
+        </div>
+    </div>
+
+   <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg12.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>شفاط Bvn مسمط مخرج جانبي  </h3>
+            <p>صناعه تركي  ضمان سنتين </p>
+                        <p>مقاس 20*20قوه سحب  120م٣/س سعر 3300ج</p>
+            <p>مقاس25*25 قوه سحب  150م٣/س سعر 3600</p>
+            
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 3300 </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg13.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>شفاط Vents  </h3>
+            <p>صناعه اوكراني ضمان 5 سنوات
+            </p>
+                        <p>قوه سحب 4 بوصه 88م٣/س سعر 2150ج</p>
+            <p>قوه سحب 5 بوصه 180م٣/س سعر 2500 ج</p>
+            <p>قوه سحب 6 بوصه 265 م٣/س سعر 3100ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 2150 </span>
+            </div>
+        </div>
+    </div>
+
+  <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg14.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>مواسير  صاج  </h3>
+            <p>و متوفر منها مقاسات على الترتيب :</p>
+            <p>متر صاج مجلفن 4 بوصة سعر 250ج</p>
+            <p>متر صاج مجلفن  5 بوصة سعر 250ج</p>
+            <p>متر صاج مجلفن 6 بوصة سعر 300ج</p>
+            <p>متر صاج مجلفن 8 بوصة سعر 450ج</p>
+            <p>متر صاج مجلفن 10 بوصة سعر 550ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 250 </span>
+            </div>
+        </div>
+    </div>
+
+      <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg15.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>مسلوب  </h3>
+            <p>و متوفر منه مقاسات على الترتيب :</p>
+            <p>مسلوب صاج مجلفن من 4/5 بوصه سعر 250ج</p>
+            <p>مسلوب صاج مجلفن من 4/6 بوصه سعر 300ج</p>
+            <p>مسلوب صاج مجلفن من 6/5 بوصه سعر 300ج</p>
+            <p>مسلوب صاج مجلفن من 8/4 بوصه سعر 350ج</p>
+            <p>مسلوب صاج مجلفن من 8/5بوصه سعر 350ج</p>
+            <p>مسلوب صاج مجلفن من 8/6 بوصه سعر 350ج</p>
+            <p>مسلوب صاج مجلفن من 10/4 بوصه سعر 400ج</p>
+            <p>مسلوب صاج مجلفن من 10/5 بوصه سعر 400ج</p>
+            <p>مسلوب صاج مجلفن من 10/6 بوصه سعر 400ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 250 </span>
+            </div>
+        </div>
+    </div>
+
+     
+
+    <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg17.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>مواسير  فليكسبل مرن </h3>
+            <p>و متوفر منها مقاسات على الترتيب :</p>
+            <p>دكت فلكسبل حراري المنيوم 3 بوصة سعر 70ج</p>
+            <p>دكت فلكسبل حراري المنيوم 4 بوصة سعر 80ج</p>
+            <p>دكت فلكسبل حراري المنيوم 5 بوصة سعر 80ج</p>
+            <p>دكت فلكسبل حراري المنيوم 6 بوصة سعر 100ج</p>
+            <p>دكت فلكسبل حراري المنيوم 8 بوصة سعر 160ج</p>
+            <p>دكت فلكسبل حراري المنيوم 10 بوصة سعر 200ج</p>
+           
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 70 </span>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg19.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>مشترك حرف Y</h3>
+            <p> متوفر منه ثلاث مقاسات :</p>
+            <p>مشترك صاج مجلفن حرف Y مقاس 4 بوصة سعر 250ج</p>
+            <p>مشترك صاج مجلفن حرف Y مقاس 5 بوصة
+سعر 300ج</p>
+            <p>مشترك صاج مجلفن حرف Y مقاس 6 بوصة سعر 350ج</p>
+           
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 250 </span>
+            </div>
+        </div>
+    </div>
+
+ <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg17.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>مشترك حرف T</h3>
+            <p> متوفر منه ثلاث مقاسات :</p>
+            <p>مشترك صاج مجلفن حرف T مقاس 4 بوصة سعر 250ج</p>
+            <p>مشترك صاج مجلفن حرف T مقاس 5 بوصة سعر 300ج</p>
+            <p>مشترك صاج مجلفن حرف T مقاس 6 بوصة سعر 350ج</p>
+            <div class="price-box">
+                <span class="new-price">اسعار تبدأ من 250 </span>
+            </div>
+        </div>
+    </div>
+ <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg16.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>لاصق حراري</h3>
+            <div class="price-box">
+                <span class="new-price">  100 جنيه  </span>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="card">
+        <div class="badge">عرض خاص</div>
+        <img src="smg20.jpeg" alt="مروحة SMG">
+        <div class="details">
+            <h3>جريلا بلاستيك ديكوري  </h3>
+            <div class="price-box">
+                <span class="new-price">  400 جنيه  </span>
+            </div>
+        </div>
+    </div>
+
+    
+</section>
+
+<!-- زرار الحجز -->
+<a href="https://wa.me/201202701540" target="_blank" class="btn-book">
+    للحجز والاستفسار
+</a>
+<a href="https://www.facebook.com/YOUR_PAGE_LINK" target="_blank" class="btn-facebook">
+    تواصل معنا عبر فيسبوك
+</a>
+
 
 </body>
 </html>
+
               
